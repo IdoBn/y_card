@@ -14,9 +14,9 @@ RSpec.describe CompaniesController, :type => :controller do
   }
 
   describe "GET show" do
-    it "returns http success" do
-      get :show
-      expect(response).to have_http_status(:success)
+    it "returns specific company" do
+      get :show, { id: american.id }
+      expect(response.body).to eq({company: american}.to_json)
     end
   end
 

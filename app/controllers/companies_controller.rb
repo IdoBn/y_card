@@ -1,5 +1,7 @@
 class CompaniesController < ApplicationController
   def show
+  	@company = Company.find(params[:id])
+  	render json: { company: @company }
   end
 
   def index
@@ -8,7 +10,7 @@ class CompaniesController < ApplicationController
   	else
   		Company.all()
   	end
-  	
+
   	render json: { companies: @companies }
   end
 end
