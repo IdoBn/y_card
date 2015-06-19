@@ -7,6 +7,11 @@ gem 'rails-api'
 
 gem 'spring', :group => :development
 
+group :test do 
+	gem 'rspec-rails', '~> 3.1.0'
+	gem 'factory_girl_rails', '~> 4.4.1'
+end
+
 
 gem 'sqlite3'
 
