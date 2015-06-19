@@ -16,7 +16,7 @@ end
 
 
 gem 'pg'
-
+gem 'pg_search'
 
 
 # To use ActiveModel has_secure_password
