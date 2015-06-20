@@ -1,7 +1,7 @@
 class CompaniesController < ApplicationController
   def show
   	@company = Company.find(params[:id])
-  	render json: { company: @company }
+  	render json: { company: @company }, include: [:tags]
   end
 
   def index
@@ -11,6 +11,6 @@ class CompaniesController < ApplicationController
   		Company.all()
   	end
 
-  	render json: { companies: @companies }
+  	render json: { companies: @companies }, include: [:tags]
   end
 end

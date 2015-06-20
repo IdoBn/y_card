@@ -16,19 +16,19 @@ RSpec.describe CompaniesController, :type => :controller do
   describe "GET show" do
     it "returns specific company" do
       get :show, { id: american.id }
-      expect(response.body).to eq({company: american}.to_json)
+      expect(response.body).to eq({company: american}.to_json(include: [:tags]))
     end
   end
 
   describe "GET index" do
     it "returns all companies" do
       get :index
-      expect(response.body).to eq({companies: [american, olio, dvora]}.to_json)
+      expect(response.body).to eq({companies: [american, olio, dvora]}.to_json(include: [:tags]))
     end
 
     it "returns search results" do 
       get :index, { query: "pizza" }
-      expect(response.body).to eq({companies: [american, olio]}.to_json)
+      expect(response.body).to eq({companies: [american, olio]}.to_json(include: [:tags]))
     end
   end
 
